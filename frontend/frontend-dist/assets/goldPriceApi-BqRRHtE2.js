@@ -1,0 +1,1 @@
+import{a3 as e}from"./index-BNjAwA83.js";const o={getLatest:()=>e.get("/gold-price/latest"),getHistory:t=>e.get("/gold-price/history",{params:{limit:t}}),update:t=>e.post("/gold-price/update",t),calculate:t=>e.get("/gold-price/calculate",{params:t})};export{o as g};

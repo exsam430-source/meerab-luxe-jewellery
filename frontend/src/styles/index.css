@@ -1,0 +1,372 @@
+@import "tailwindcss";
+
+/* ✅ CSS Custom Properties - Dark Luxury Theme */
+:root {
+  /* Backgrounds */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #333333;
+  --bg-card: #242424;
+  --bg-border: #3d3d3d;
+
+  /* Gold */
+  --gold-primary: #d4af37;
+  --gold-light: #f4e5c2;
+  --gold-dark: #b8960c;
+  --gold-muted: #9a7b3a;
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-muted: #a0a0a0;
+  --text-faint: #6b7280;
+
+  /* Status */
+  --success: #10b981;
+  --error: #ef4444;
+  --warning: #f59e0b;
+  --info: #3b82f6;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ✅ Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-muted);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* ✅ Selection */
+::selection {
+  background: var(--gold-primary);
+  color: #1a1a1a;
+}
+
+/* ✅ Typography */
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-cormorant { font-family: 'Cormorant Garamond', serif; }
+.font-inter { font-family: 'Inter', sans-serif; }
+
+/* ✅ Gold Gradient Text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #d4af37 0%, #f4e5c2 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ✅ Gold Gradient Background */
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #d4af37 0%, #f4e5c2 50%, #d4af37 100%);
+}
+
+/* ✅ Buttons */
+.btn-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #b8960c 100%);
+  color: #1a1a1a;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+}
+.btn-gold:hover {
+  background: linear-gradient(135deg, #f4e5c2 0%, #d4af37 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: #d4af37;
+  border: 1px solid #d4af37;
+  padding: 11px 27px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+.btn-outline-gold:hover {
+  background: rgba(212, 175, 55, 0.1);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+}
+
+/* ✅ Cards */
+.card-dark {
+  background: var(--bg-card);
+  border: 1px solid var(--bg-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.card-dark:hover {
+  border-color: var(--gold-muted);
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.15);
+}
+
+/* ✅ Swiper Custom Styles */
+.swiper-pagination-bullet {
+  background: var(--gold-muted) !important;
+  opacity: 0.6;
+}
+.swiper-pagination-bullet-active {
+  background: var(--gold-primary) !important;
+  opacity: 1;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--gold-primary) !important;
+}
+
+/* ✅ Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+/* ✅ Skeleton Loader */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--bg-tertiary) 50%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+  border-radius: 4px;
+}
+
+/* ✅ Image hover zoom */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 0.5s ease;
+}
+.img-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* ✅ Gold border bottom */
+.gold-underline {
+  position: relative;
+}
+.gold-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--gold-primary);
+}
+
+/* ✅ Section Heading */
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-subheading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--gold-muted);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* ✅ Divider */
+.gold-divider {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 0 auto 2rem;
+}
+
+/* ✅ Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 2px;
+}
+
+/* ✅ Input Styles */
+.input-dark {
+  background: var(--bg-secondary);
+  border: 1px solid var(--bg-border);
+  color: var(--text-primary);
+  padding: 10px 14px;
+  border-radius: 6px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+.input-dark:focus {
+  outline: none;
+  border-color: var(--gold-muted);
+}
+.input-dark::placeholder {
+  color: var(--text-faint);
+}
+
+/* ✅ Badge */
+.badge-gold {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold-primary);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.badge-sale {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-new {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ✅ Responsive container */
+.container-custom {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding: 0 40px;
+  }
+}
+
+/* ✅ WhatsApp Green */
+.whatsapp-btn {
+  background: #25d366;
+  color: white;
+  transition: all 0.3s ease;
+}
+.whatsapp-btn:hover {
+  background: #128c7e;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* ✅ Page transition */
+.page-enter {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* ✅ No scrollbar for horizontal sliders */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ✅ Star Rating */
+.star-filled { color: #d4af37; }
+.star-empty { color: #3d3d3d; }
+
+/* ✅ Table styles for admin */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.admin-table th {
+  background: var(--bg-secondary);
+  color: var(--gold-primary);
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--bg-border);
+}
+.admin-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--bg-border);
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+.admin-table tr:hover td {
+  background: var(--bg-secondary);
+}

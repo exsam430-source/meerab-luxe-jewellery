@@ -1,0 +1,1 @@
+import{a3 as i}from"./index-BNjAwA83.js";const s={getReviews:(e,t={})=>i.get(`/reviews/${e}`,{params:t}),addReview:(e,t)=>i.post(`/reviews/review/${e}`,t,{headers:{"Content-Type":"multipart/form-data"},timeout:3e4}),deleteReview:(e,t)=>i.delete(`/reviews/review/${e}/${t}`)};export{s as r};
